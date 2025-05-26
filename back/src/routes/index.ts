@@ -5,6 +5,6 @@ import usersRouter from "./usersRouter";
 const router = Router();
 
 router.use("/appointments", appointmentsRouter)
-router.use("/user", usersRouter)
+router.use("/users", usersRouter)
 
 export default router;
