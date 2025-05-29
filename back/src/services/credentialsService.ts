@@ -1,21 +1,24 @@
-import ICredential from "../interfaces/ICredential"
+import { credentialRepository } from "../config/data-source";
+import Credential from "../entities/Credential";
+import User from "../entities/User";
 
-const credentialsDB: ICredential[] = [];
-let credentialId : number = 1;
-
-export const createCredentialService = async (username: string, password: string): Promise <ICredential["id"]> => {
-    const newCredentials: ICredential = {
-        id: credentialId ++,
+export const createCredentialService = async (username: string, password: string, user: User): Promise <Credential> => {
+    const newCredentials = await credentialRepository.create({
         username,
         password,
-    };
-    credentialsDB.push(newCredentials);
-    return newCredentials.id;
+        user
+    });
+    
+    const results = await credentialRepository.save(newCredentials);
+
+    return results;
 };
 
 
-export const validateCredentialService = async (username: string, password: string): Promise <ICredential["id"]> => {
-    const foundCredential: ICredential | undefined = credentialsDB.find((credential) => credential.username == username);
+export const validateCredentialService = async (username: string, password: string): Promise <Credential["id"]> => {
+    const foundCredential: Credential | null = await credentialRepository.findOneBy({
+        username,
+    });
 
     if (!foundCredential) {
         throw new Error("No existe el username");

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import User from "./User";
 
 @Entity({
     name: "credentials",
@@ -18,6 +19,10 @@ class Credential {
         length: 100,
     })
     password: string;
+
+    @OneToOne(() => User)
+    @JoinColumn()
+    user: User;
 }
 
 export default Credential;

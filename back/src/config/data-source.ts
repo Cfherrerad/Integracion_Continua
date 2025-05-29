@@ -11,9 +11,14 @@ export const AppDataSource = new DataSource({
     username: DB_USERNAME,
     password: DB_PASSWORD,
     database: DB_NAME,
+    // dropSchema: true,
     synchronize: true,
     logging: false,
     entities: [Credential, User, Appointment],
     subscribers: [],
     migrations: [],
 })
+
+export const credentialRepository = AppDataSource.getRepository(Credential);
+export const userRepository = AppDataSource.getRepository(User);
+export const appointmentRepository = AppDataSource.getRepository(Appointment);
