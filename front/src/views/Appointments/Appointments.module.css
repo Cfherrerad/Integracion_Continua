@@ -1,0 +1,33 @@
+.body{
+    background-color: whitesmoke;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 2px solid #222222; */
+    gap: 20px;
+    /* padding: 20px 20px 40px 20px; */
+}
+
+.title {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid #222222; */
+}
+
+.appointmentsContainer{
+    /* min-height: calc(100vh - 70px); */
+    /* max-height: 70vh; */
+    background-color: #d8d7d7;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px; /* espacio entre tarjetas */
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
