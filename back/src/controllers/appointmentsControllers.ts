@@ -4,14 +4,17 @@ import ICreateAppointmentDTO from "../dtos/ICreateAppointmentDTO";
 import Appointment from "../entities/Appointment";
 
 //GET /appointments => Obtener el listado de todos los turnos de todos los usuarios.
-export const getAppointmentsController = async (_req: Request, res:Response) => {
+export const getAppointmentsController = async (req: Request, res: Response) => {
     try {
-        const appointments: Appointment[] = await getAppointmentsService();
+        const {userId} = req.params
+        const appointments: Appointment[] = await getAppointmentsService(Number(userId));
+        console.log(req.params)
+        
         res.status(200).json({
-            succes: true,
+            success: true,
             data: appointments,
         });
-    } catch (error:any) {
+    } catch (error: any) {
         res.status(404).json({
             success: false,
             message: error.message,

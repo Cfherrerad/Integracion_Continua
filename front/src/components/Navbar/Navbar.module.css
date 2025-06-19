@@ -1,6 +1,6 @@
 .header {
     /* background-color: #08a198; */
-    background-color: #3aa2da;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,23 +21,38 @@
 }
 
 .navLinks > li > a {
-    background-color: #6bb3da;
+    background-color: white;
     color: #222222;
     text-decoration: none;
-    padding: 5px 7px;
-    /* border: 2px solid #222222; */
+    padding: 5px 15px;
+    /* border: 2px solid #0E64D2; */
     border-radius: 5px;
-    display: inline-block;
+    display: inline-flex; /* Cambiado a flex para centrado vertical */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente (opcional) */
     transition: background-color 0.5s ease, transform 0.5s ease;
+    height: 30px; /* Altura fija */
 }
 
 .navLinks > li > a:hover {
-    background-color: whitesmoke;
+    border: #0E64D2;
+    background-color: #0E64D2;
     transform: scale(1.05);
+    color: white;
 }
 
 .logoNavbar{
     height: 50px;
     width: 100.42px;
     border-radius: 7px;
+}
+
+.logoutButton {
+    background-color: white;
+    color: #222222;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    justify-content: center; /* Centra horizontalmente (opcional) */
+    height: 30px; /* Altura fija */
 }

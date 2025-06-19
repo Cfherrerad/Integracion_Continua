@@ -4,10 +4,13 @@ import { cancelAppointmentsController, createAppointmentsController, getAppointm
 const appointmentsRouter:Router = Router();
 
 // GET /appointments => Obtener el listado de todos los turnos de todos los usuarios.
-appointmentsRouter.get("/",getAppointmentsController);
+
+// appointmentsRouter.get("/",getAppointmentsController);
+
+appointmentsRouter.get("/user/:userId", getAppointmentsController);
 
 // GET /appointments => Obtener el detalle de un turno específico.
-appointmentsRouter.get("/:id",getAppointmentsByIdController);
+// appointmentsRouter.get("/:id",getAppointmentsByIdController);
 
 // POST /appointments/schedule => Agendar un nuevo turno.
 appointmentsRouter.post("/schedule",createAppointmentsController);

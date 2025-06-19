@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { AppointmentStatus } from "../interfaces/IAppointment";
 import User from "./User";
 
@@ -17,15 +17,16 @@ class Appointment {
     @Column()
     time: string;
 
-    @ManyToOne(() => User, (user) => user.appointments)
-    user: User;
-
     @Column({
         type: "enum",
         enum: AppointmentStatus,
         default: AppointmentStatus.ACTIVE,
     })
     status: AppointmentStatus;
+
+    @ManyToOne(() => User, (user) => user.appointments)
+    @JoinColumn({ name: 'userId' })
+    user: User;
 }
 
 export default Appointment;

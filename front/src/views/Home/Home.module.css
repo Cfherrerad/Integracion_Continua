@@ -1,5 +1,6 @@
 .body {
-    background-color: whitesmoke;
+    background-color: #0E64D2;
+    color: white;
     min-height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;

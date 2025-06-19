@@ -1,3 +1,4 @@
+import { FindManyOptions } from "typeorm";
 import { appointmentRepository } from "../config/data-source";
 import ICreateAppointmentDTO from "../dtos/ICreateAppointmentDTO";
 import Appointment from "../entities/Appointment";
@@ -6,8 +7,18 @@ import { AppointmentStatus } from "../interfaces/IAppointment";
 import { getUserByIdService } from "./usersService";
 
 
-export const getAppointmentsService = async (): Promise<Appointment[]> => {
-    return await appointmentRepository.find();
+export const getAppointmentsService = async (userId: number | null = null): Promise<Appointment[]> => {
+    const options: FindManyOptions<Appointment> = {}
+
+    if (userId) {
+        options.where = {
+            user: {
+                id: userId
+            }
+        }
+    }
+
+    return await appointmentRepository.find(options);
 };
 
 export const getAppointmentByIdService = async (id:number): Promise<Appointment> => {
