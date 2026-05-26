@@ -28,7 +28,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const response = await axios.post("http://localhost:8080/users/register",form);
+            const response = await axios.post("http://backend:8080/users/register",form);
             
             console.log(response.data);
             alert("User correctly registered");

@@ -14,7 +14,7 @@ const Login = () => {
 
     const handleSubmit = async (values) => {
         try {
-            const response = await axios.post("http://localhost:8080/users/login",values);
+            const response = await axios.post("http://backend:8080/users/login",values);
             
             localStorage.setItem("user", JSON.stringify(response.data.user));
 

@@ -11,7 +11,7 @@ const Appointments = () => {
 
 const apiCall = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const response = await axios.get(`http://localhost:8080/appointments/${user.id}`)
+    const response = await axios.get(`http://backend:8080/appointments/${user.id}`)
     localStorage.setItem("appointments",JSON.stringify(response.data.data));
     console.log(response)
         const data = response.data.data;
