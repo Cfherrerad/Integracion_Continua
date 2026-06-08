@@ -3,25 +3,9 @@ pipeline {
 
     stages {
 
-        stage('Instalar Frontend') {
+        stage('Clonar Proyecto') {
             steps {
-                dir('front') {
-                    sh 'npm install'
-                }
-            }
-        }
-
-        stage('Instalar Backend') {
-            steps {
-                dir('back') {
-                    sh 'npm install'
-                }
-            }
-        }
-
-        stage('Construir Docker') {
-            steps {
-                sh 'docker compose build'
+                echo 'Repositorio descargado correctamente desde GitHub'
             }
         }
 
