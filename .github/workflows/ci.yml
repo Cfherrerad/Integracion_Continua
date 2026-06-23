@@ -1,0 +1,28 @@
+name: Integracion Continua
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validar-proyecto:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar estructura
+        run: ls -la
+
+      - name: Verificar Docker
+        run: docker --version
+
+      - name: Verificar Docker Compose
+        run: docker compose version
+
+      - name: Validacion completada
+        run: echo "Pipeline ejecutado correctamente"
